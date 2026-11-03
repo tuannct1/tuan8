@@ -14,6 +14,14 @@
         <activity
             android:name=".bai1.MainActivity"
             android:exported="true"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".bai1.DangKyActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".bai2.MainActivity"
+            android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +30,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".bai1.DangKyActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:name=".bai3.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
