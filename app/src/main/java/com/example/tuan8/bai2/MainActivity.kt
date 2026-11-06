@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         file.edit {
             putString(email, json)
         }
-        Log.d("Tes", file.getString(email, "")?: "")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,15 +43,16 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //Tạo đường dẫn trong SharedPrefrences
         file = getSharedPreferences("user", MODE_PRIVATE)
-
+        //Xữ lý các ô nhập liệu với nút nhớ
         if(file.contains("remember")){
             val user = Gson().fromJson(file.getString("remember", ""), User::class.java)
             binding.edtEmail.setText(user.email)
             binding.edtPassword.setText(user.password)
             binding.cbRemember.isChecked = true
         }
-
+        //Xử lý login
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             if(file.contains(email)){
@@ -64,10 +64,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        //Xử lý signup
         binding.tvSignUp.setOnClickListener {
             val intent = Intent(this, DangKyActivity::class.java)
             launcher.launch(intent)
         }
+        //Xử lý remember
         binding.cbRemember.setOnCheckedChangeListener { button, bool ->
             if(bool){
                 val user = User(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())

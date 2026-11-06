@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".bai4.MainActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Bảng giá xe"
+        android:background="#E91E63">
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#FFEB3B">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_height="wrap_content"
+            android:text="Bảng giá xe"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/tvThem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Thêm"/>
+        <TextView
+            android:id="@+id/tvXoa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Xóa"/>
+        <TextView
+            android:id="@+id/Luu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Lưu"/>
+    </LinearLayout>
+    <Spinner
+        android:id="@+id/sprHangXe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+    </Spinner>
+    <EditText
+        android:id="@+id/edtDongXe"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Dong xe"/>
+    <EditText
+        android:id="@+id/edtGia"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="gia"/>
+    <EditText
+        android:id="@+id/edtPhienBan"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Phien ban"/>
+    <ListView
+        android:id="@+id/lvXe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

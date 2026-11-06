@@ -1,6 +1,7 @@
 package com.example.tuan8.bai1
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -40,18 +41,22 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //Tạo đường dẫn file
         file = File(this.filesDir, "user.txt")
+        //Tạo file remember cho nút nhớ
         fileRemember = File(this.filesDir, "remember.txt")
+        //set text cho các ô nhập tài khoản
         if(fileRemember.exists() && fileRemember.readText() != "" ){
             val user = Gson().fromJson(fileRemember.readText(), User::class.java)
             binding.edtEmail.setText(user.email)
             binding.edtPassword.setText(user.password)
             binding.cbRemember.isChecked = true
         }
-
+        //Xử lý nút login
         binding.btnLogin.setOnClickListener {
             if(file.exists()){
                 val json = file.readLines()
+
                 for(i in json){
                     val user = Gson().fromJson(i, User::class.java)
                     if(user.email == binding.edtEmail.text.toString() && user.password == binding.edtPassword.text.toString()){
@@ -61,11 +66,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
+        //Xử lý nút signup
         binding.tvSignUp.setOnClickListener {
             val intent = Intent(this, DangKyActivity::class.java)
             launcher.launch(intent)
         }
+        //Xử lý nút nhớ
         binding.cbRemember.setOnCheckedChangeListener { button, bool ->
             if(bool){
                 val user = User(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())

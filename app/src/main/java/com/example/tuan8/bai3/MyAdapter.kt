@@ -35,6 +35,7 @@ class MyAdapter(private val ds: MutableList<File>) : RecyclerView.Adapter<MyAdap
             "jpg"->holder.icon.setImageResource(R.drawable.img_box_svgrepo_com)
             "webp"->holder.icon.setImageResource(R.drawable.facebooklogo)
             "jpeg"->holder.icon.setImageResource(R.drawable.insert_word_svgrepo_com)
+            "docx"->holder.icon.setImageResource(R.drawable.insert_word_svgrepo_com)
             else->holder.icon.setImageResource(R.drawable.help_svgrepo_com)
         }
     }

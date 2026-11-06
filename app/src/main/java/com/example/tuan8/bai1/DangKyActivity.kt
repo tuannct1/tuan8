@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tuan8.R
+import com.example.tuan8.User
 import com.example.tuan8.databinding.ActivityDangKiBinding
 
 class DangKyActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class DangKyActivity : AppCompatActivity() {
         }
         binding.btnRegister.setOnClickListener {
             val intent = Intent()
+            val user = User(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())
             intent.putExtra("email", binding.edtEmail.text.toString())
             intent.putExtra("password", binding.edtPassword.text.toString())
             setResult(RESULT_OK,intent)
